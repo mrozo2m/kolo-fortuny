@@ -1,16 +1,38 @@
-# This is a sample Python script.
+"""print("Podaj kategorię hasła")
+category = input()
+print("Podaj hasło")
+password = input()"""
+category = "marka samochodu"
+password = "mercedes"
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+password_blind = ''
+for i in range (0,len(password)):
+    password_blind = password_blind + chr(95)
+
+while password != password_blind:
+    print('==========================================================')
+    print("Hasło do odgadnięcia", password_blind, "Kategori", category)
+    j = 0
+    hit = 0
+    print('Podaj literę z hasła lub odgaduj hasło')
+    quess = input()
+    if quess == password:
+        print('Brawo ! Odgadnięte hasło to:', password)
+        break
+    else:
+        for i in password:
+            j = j + 1
+            if quess == i:
+                password_blind = password_blind[:j-1] + quess + password_blind[j:]
+                hit = 1
+    if hit > 0:
+        print("Tarfiłeś")
+    else:
+        print('Pudło')
+
+print('Brawo ! Odgadnięte hasło to:', password)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
